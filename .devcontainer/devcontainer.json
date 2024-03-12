@@ -18,11 +18,10 @@
 			"packages": "curl,nano"
 		},
 		"ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2":{},
-		"ghcr.io/devcontainers-contrib/features/btop-homebrew:1":{},
 		"ghcr.io/devcontainers-contrib/features/pnpm:2":{},
 		"ghcr.io/devcontainers-contrib/features/poetry:2":{},
-		"ghcr.io/devcontainers-contrib/features/tailscale:1":{},
-		"ghcr.io/devcontainers-contrib/features/tmux-apt-get:1":{}
+		// "ghcr.io/devcontainers-contrib/features/tailscale:1":{},
+		// "ghcr.io/devcontainers-contrib/features/tmux-apt-get:1":{}
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
