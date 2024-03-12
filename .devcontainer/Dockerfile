@@ -80,3 +80,8 @@ RUN sudo echo "Running 'sudo' for rahulvramesh: success" && \
 RUN curl -fsSL https://get.jetpack.io/devbox -o devbox_install \
     && chmod +x devbox_install \
     && bash devbox_install -f
+
+# Create New directory called cache
+RUN mkdir -p /home/rahulvramesh/.cache
+
+# Run the command to install the devbox
