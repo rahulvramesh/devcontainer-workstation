@@ -17,7 +17,6 @@
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
 			"packages": "curl,nano"
 		},
-		"ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2":{},
 		"ghcr.io/devcontainers-contrib/features/pnpm:2":{},
 		"ghcr.io/devcontainers-contrib/features/poetry:2":{},
 		"ghcr.io/devcontainers-contrib/features/tailscale:1":{},
