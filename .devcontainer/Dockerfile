@@ -43,33 +43,33 @@ ENV LANG=en_US.UTF-8
 RUN upgrade-packages
 
 
-# ARG USERNAME=rahulvramesh
-# ARG USER_UID=1000
-# ARG USER_GID=$USER_UID
+ARG USERNAME=rahulvramesh
+ARG USER_UID=1002
+ARG USER_GID=$USER_UID
 
 
-# RUN groupadd --gid $USER_GID $USERNAME \
-#     && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
-#     && apt-get update \
-#     && apt-get install -y sudo \
-#     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
-#     && chmod 0440 /etc/sudoers.d/$USERNAME
-
-# USER $USERNAME
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
+    && apt-get update \
+    && apt-get install -y sudo \
+    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME
 
 ### Gitpod user ###
 # '-l': see https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user
-RUN useradd -l -u 1002 -G sudo -md /home/rahulvramesh -s /bin/bash -p rahulvramesh rahulvramesh \
-    # passwordless sudo for users in the 'sudo' group
-    && sed -i.bkp -e 's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers
+# RUN useradd -l -u 1002 -G sudo -md /home/rahulvramesh -s /bin/bash -p rahulvramesh rahulvramesh \
+#     # passwordless sudo for users in the 'sudo' group
+#     && sed -i.bkp -e 's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers
 ENV HOME=/home/rahulvramesh
 WORKDIR $HOME
+
 
 # custom Bash prompt
 RUN { echo && echo "PS1='\[\033[01;32m\]\u\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\]\$(__git_ps1 \" (%s)\") $ '" ; } >> .bashrc
 
 ### Gitpod user (2) ###
-USER rahulvramesh
+USER $USERNAME
+# USER rahulvramesh
 # use sudo so that user does not get sudo usage info on (the first) login
 RUN sudo echo "Running 'sudo' for rahulvramesh: success" && \
     # create .bashrc.d folder and source it in the bashrc
@@ -83,5 +83,5 @@ RUN curl -fsSL https://get.jetpack.io/devbox -o devbox_install \
 
 # Create New directory called cache
 RUN mkdir -p /home/rahulvramesh/.cache
-
+RUN mkdir /workspaces
 # Run the command to install the devbox
