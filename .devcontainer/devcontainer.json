@@ -13,11 +13,9 @@
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
 		"ghcr.io/devcontainers/features/github-cli:1": {},
 		"ghcr.io/devcontainers/features/nix:1": {},
-		"ghcr.io/devcontainers/features/node:1": {},
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
 			"packages": "curl,nano"
 		},
-		"ghcr.io/devcontainers-contrib/features/pnpm:2":{},
 		"ghcr.io/devcontainers-contrib/features/poetry:2":{},
 		"ghcr.io/devcontainers-contrib/features/tailscale:1":{},
 		// "ghcr.io/devcontainers-contrib/features/tmux-apt-get:1":{}
@@ -49,6 +47,6 @@
 	},
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	"remoteUser": "rahulvramesh",
-	"containerUser": "rahulvramesh"
+	"remoteUser": "rahulvramesh"
+	// "containerUser": "rahulvramesh"
 }
