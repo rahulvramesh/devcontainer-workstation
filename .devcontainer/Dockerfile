@@ -83,5 +83,5 @@ RUN curl -fsSL https://get.jetpack.io/devbox -o devbox_install \
 
 # Create New directory called cache
 RUN mkdir -p /home/rahulvramesh/.cache
-RUN mkdir /workspaces
+RUN sudo mkdir /workspaces
 # Run the command to install the devbox
