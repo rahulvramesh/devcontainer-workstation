@@ -59,7 +59,7 @@ RUN upgrade-packages
 
 ### Gitpod user ###
 # '-l': see https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user
-RUN useradd -l -u 1000 -G sudo -md /home/rahulvramesh -s /bin/bash -p rahulvramesh rahulvramesh \
+RUN useradd -l -u 1002 -G sudo -md /home/rahulvramesh -s /bin/bash -p rahulvramesh rahulvramesh \
     # passwordless sudo for users in the 'sudo' group
     && sed -i.bkp -e 's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers
 ENV HOME=/home/rahulvramesh
